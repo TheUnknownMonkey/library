@@ -49,39 +49,36 @@ function loadBooks(){
         //text in the book
         title.innerHTML=library[i]["title"];
         
-        author.innerHTML=library[i]["author"];
+        author.innerHTML="By: "+library[i]["author"];
         
-        pages.innerHTML=library[i]["number"];
+        pages.innerHTML="pages : "+library[i]["number"];
         
         button.innerHTML = "Delete";
         //append text to book
+        
         ThisBook.appendChild(title);
-        ThisBook.appendChild(button)
+        ThisBook.appendChild(author);
+        ThisBook.appendChild(pages);
+        ThisBook.appendChild(button);
         //append book to the section
         booksDiv.push(ThisBook);
         books.appendChild(ThisBook);
- 
+        
+       
+        
+            
     }
     for (let j=0; j<books.childNodes.length;j++){
-      
-        books.childNodes[j].childNodes[1].addEventListener("click", ()=>{
-            console.log(j)
-            console.log(books.childNodes[0]);
-
-            books.removeChild(books.childNodes[j]);
-            library.splice(j, 1);
-      
-            j=books.childNodes.length
-        }, false)
+    books.childNodes[j].childNodes[3].addEventListener("click", ()=>{
+        console.log("hehe")
+        //books.removeChild(books.childNodes[j]);
+        library.splice(j, 1);
+        books.innerHTML="";
+        loadBooks()
+        
+    }) 
+    
     }
 
-        // }
-        // button.addEventListener("click", ()=>{
-        //     library[i].pop;
-        //     books.removeChild(ThisBook)
-            
-        // })
-   
-    
-    
 }
+
